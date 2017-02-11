@@ -5,7 +5,7 @@ import AppViewContainer from './src/modules/AppViewContainer';
 import React from 'react';
 import {AppRegistry} from 'react-native';
 
-const SquadTemplate = React.createClass({
+const SaveYourQR = React.createClass({
 
   render() {
     return (
@@ -16,4 +16,4 @@ const SquadTemplate = React.createClass({
   }
 });
 
-AppRegistry.registerComponent('SquadTemplate', () => SquadTemplate);
+AppRegistry.registerComponent('SaveYourQR', () => SaveYourQR);

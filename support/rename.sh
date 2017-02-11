@@ -8,12 +8,12 @@ appRoot=`dirname $0`/..
 [ -z "${newAppName}" ] && echo 'Missing required parameter newAppName' && exit 1
 
 # gather all modification targets
-filesToModify=$(grep -riIl 'pepperoniapptemplate' --exclude='rename.sh' $appRoot/*)
-filesToRename=$(find "${appRoot}/ios" "${appRoot}/android" -type f -ipath '*pepperoniapptemplate*')
+filesToModify=$(grep -riIl 'squadtemplate' --exclude='rename.sh' $appRoot/*)
+filesToRename=$(find "${appRoot}/ios" "${appRoot}/android" -type f -ipath '*squadtemplate*')
 
 # replace strings in files
 for fileToModify in $filesToModify; do
-  sed -i.bak "s/PepperoniAppTemplate/${newAppName}/g;s/pepperoniapptemplate/${newLowerCaseName}/g" $fileToModify
+  sed -i.bak "s/SquadTemplate/${newAppName}/g;s/squadtemplate/${newLowerCaseName}/g" $fileToModify
 done
 find "${appRoot}" -name '*.bak' -exec rm {} \;
 
@@ -26,12 +26,12 @@ else
 fi
 
 for fileToRename in $filesToRename; do
-  newName=$(echo $fileToRename | sed "s/PepperoniAppTemplate/$newAppName/g;s/pepperoniapptemplate/$newLowerCaseName/g")
+  newName=$(echo $fileToRename | sed "s/SquadTemplate/$newAppName/g;s/squadtemplate/$newLowerCaseName/g")
   mkdir -p $(dirname "$newName") && $mvCmd "$fileToRename" "$newName"
 done
 
 # remove leftover empty directories
-rmdir -p $(find "$appRoot" -ipath '*pepperoniapptemplate*' -type d) 2>/dev/null
+rmdir -p $(find "$appRoot" -ipath '*squadtemplate*' -type d) 2>/dev/null
 
 YELLOW='\033[1;33m'
 CLEAR='\033[0m'

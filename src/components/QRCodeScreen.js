@@ -1,14 +1,18 @@
-import React, {PropTypes} from 'react';
-import Camera from 'react-native-camera';
-import {
+'use strict';
+
+var React = require('react-native');
+
+var {
   StyleSheet,
   View,
   Text,
   TouchableOpacity,
   VibrationIOS,
-} from 'react-native';
+} = React;
 
-var CameraView = React.createClass({
+import Camera from 'react-native-camera';
+
+var QRCodeScreen = React.createClass({
 
   propTypes: {
     cancelButtonVisible: React.PropTypes.bool,
@@ -117,4 +121,4 @@ var styles = StyleSheet.create({
   },
 });
 
-export default CameraView;
+module.exports = QRCodeScreen;

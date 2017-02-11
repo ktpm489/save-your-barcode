@@ -1,4 +1,4 @@
-package com.squadtemplate;
+package com.saveyourqr;
 
 import com.lwansbrough.RCTCamera.RCTCameraPackage;
 import android.app.Application;

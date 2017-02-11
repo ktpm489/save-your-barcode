@@ -6,7 +6,7 @@ import React from 'react';
 import {AppRegistry, BackAndroid} from 'react-native';
 import * as NavigationStateActions from './src/modules/navigation/NavigationState';
 
-const SquadTemplate = React.createClass({
+const SaveYourQR = React.createClass({
 
   componentWillMount() {
     BackAndroid.addEventListener('hardwareBackPress', this.navigateBack);
@@ -44,4 +44,4 @@ const SquadTemplate = React.createClass({
   }
 });
 
-AppRegistry.registerComponent('SquadTemplate', () => SquadTemplate);
+AppRegistry.registerComponent('SaveYourQR', () => SaveYourQR);

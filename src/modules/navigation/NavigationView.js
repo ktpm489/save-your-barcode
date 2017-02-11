@@ -35,6 +35,9 @@ const NavigationView = React.createClass({
   // NavigationHeader accepts a prop style
   // NavigationHeader.title accepts a prop textStyle
   renderHeader(sceneProps) {
+    if (sceneProps.scene.route.key === 'Camera') {
+      return null;
+    }
     return (
       <NavigationHeader
         {...sceneProps}
@@ -58,10 +61,29 @@ const NavigationView = React.createClass({
       </View>
     );
   },
+
+  renderTabBar(currentScene) {
+    const {tabs} = this.props.navigationState;
+    console.log('---currentScene--');
+    console.log(currentScene);
+    if (currentScene.key === 'Camera') {
+      return null;
+    }
+    return (
+      <TabBar
+        height={TAB_BAR_HEIGHT}
+        tabs={tabs}
+        currentTabIndex={tabs.index}
+        switchTab={this.props.switchTab}
+      />
+    );
+  },
+
   render() {
     const {tabs} = this.props.navigationState;
     const tabKey = tabs.routes[tabs.index].key;
     const scenes = this.props.navigationState[tabKey];
+    const currentScene = scenes.routes[scenes.index];
     return (
       <View style={styles.container}>
         <NavigationCardStack
@@ -71,12 +93,7 @@ const NavigationView = React.createClass({
           renderHeader={this.renderHeader}
           renderScene={this.renderScene}
         />
-        <TabBar
-          height={TAB_BAR_HEIGHT}
-          tabs={tabs}
-          currentTabIndex={tabs.index}
-          switchTab={this.props.switchTab}
-        />
+        {this.renderTabBar(currentScene)}
       </View>
     );
   }
